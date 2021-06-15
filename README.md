@@ -1,6 +1,6 @@
 CodingNomads Java Fundamentals
 
-Edited Number 2***
+Edited Number 2*** (Branch)
 
 This project contains a variety of textbook examples and labs focused on Java labs_examples.fundamentals.
 
