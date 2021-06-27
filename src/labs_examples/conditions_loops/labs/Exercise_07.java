@@ -22,15 +22,36 @@ public class Exercise_07 {
 
         System.out.println("Enter a word:");
 
-        String str = scanner.nextLine();
+        String str = scanner.nextLine().toLowerCase();
 
-        
+        int c = str.length();
+
         System.out.println(str);
-        System.out.println("a".indexOf(str));
+
+        for(int i = 0; i < c; i++ ){
+
+            char x = str.charAt(i);
+
+            if(x == 'a'){
+                System.out.println("a");
+                break;
+            }
+            else if (x == 'e'){
+                System.out.println("e");
+                break;
+            }
+            else if (x == 'o'){
+                System.out.println("o");
+                break;
+            }
+            else if(x == 'u'){
+                System.out.println("u");
+                break;
 
 
-
-
-
+            }
+            }
     }
+
 }
+
