@@ -22,8 +22,11 @@ public class Exercise_06 {
         // Question: in the for loop below, why do we divide "nums.length" by 2?
         for(int i = 0; i < nums.length / 2; i++){
             // swap elements at indexes in array
+            temp = nums[i];
             // you have two indices readily available for you to use "i" (which increments) and "nums.length"
+            nums[i] = nums[nums.length-1-i];
             // you've also got this "temp" variable you can use to hold a value temporarily
+            nums[nums.length-1-i] = temp;
         }
         System.out.print("Contents of array after for loop - ");
         // print each element of the array to verify reverse order

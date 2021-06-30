@@ -1,5 +1,7 @@
 package labs_examples.arrays.labs;
 
+import java.util.Scanner;
+
 /**
  * Arrays calculator
  *
@@ -14,7 +16,30 @@ public class Exercise_01 {
 
     public static void main(String[]args) {
 
-        System.out.println("Hello world!");
+        Scanner scanner = new Scanner(System.in);
+
+        int val = scanner.nextInt();
+
+        int [] array = new int [10];
+
+
+
+        for(int i = 0; i < array.length; i++){
+
+            System.out.println("Enter a number :");
+            array[i] = val;
+
+
+        }
+        System.out.println(array);
+
+
+
+
+
+
+
+
 
 
     }

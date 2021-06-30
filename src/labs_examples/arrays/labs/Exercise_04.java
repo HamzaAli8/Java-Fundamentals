@@ -9,5 +9,38 @@ package labs_examples.arrays.labs;
  */
 
 public class Exercise_04 {
+    public static void main(String[] args) {
 
-}
+        int [][] array = new int[5][4];
+
+        int count = 0;
+
+        for(int i = 0; i < array.length; i++){
+
+            for(int j = 0; j < array[i].length; j++){
+
+
+                array[i][j]= count;
+                count += 5;
+
+
+                }
+
+            }
+            for(int[] i : array ){
+
+                for(int j : i){
+
+                    System.out.print(j + " | ");
+                }
+
+                System.out.println();
+
+
+            }
+            }
+        }
+
+
+
+

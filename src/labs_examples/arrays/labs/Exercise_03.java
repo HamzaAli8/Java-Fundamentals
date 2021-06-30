@@ -18,6 +18,22 @@ package labs_examples.arrays.labs;
 public class Exercise_03 {
 
     public static void main(String[] args) {
+
+        int [] [] twoD = new int[5][5];
+
+        int counter = 3;
+
+        for(int i = 0; i < twoD.length; i++){
+            for(int j= 0; j < twoD[i].length; j++){
+
+                twoD[i][j] += counter;
+                counter += 3;
+
+                System.out.print(twoD[i][j] + " | ");
+            }
+
+            System.out.println();
+        }
         
     }
 }
