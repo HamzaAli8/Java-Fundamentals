@@ -1,5 +1,6 @@
 package labs_examples.objects_classes_methods.labs.methods;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MethodTraining {
@@ -16,13 +17,13 @@ public class MethodTraining {
 
         //largestNum(34,24,95,86,56,88,102);
 
-        primeNum(2);
+        //primeNum(169);
 
         //reversString("ball");
 
-        //int [] a = {4,8,9,20,34,22,19,85,12,3};
+        int [] a = {4,8,9,20,34,22,19,85,12,3};
 
-        //returnArray(a);
+        returnArray(a);
 
         //divideArray(100,2,4);
 
@@ -106,7 +107,9 @@ public class MethodTraining {
 
             System.out.println("It's prime!");
         }
-
+        else{
+            System.out.println("It's not prime!");
+        }
     }
 
     public static String reversString(String s){
@@ -183,7 +186,9 @@ public class MethodTraining {
         }
         System.out.println(max);
 
+        Arrays.fill(arr,max);
 
+        System.out.println(Arrays.toString(arr));
 
         return arr;
     }
