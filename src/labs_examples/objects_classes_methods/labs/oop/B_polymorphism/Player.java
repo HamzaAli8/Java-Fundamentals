@@ -17,6 +17,37 @@ public class Player {
         this.foot = foot;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getFoot() {
+        return foot;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setFoot(String foot) {
+        this.foot = foot;
+    }
 }
 
 

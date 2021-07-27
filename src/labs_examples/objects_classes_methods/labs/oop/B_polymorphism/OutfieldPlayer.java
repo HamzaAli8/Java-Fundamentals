@@ -9,5 +9,30 @@ public class OutfieldPlayer extends Player {
 
     }
 
+    void tackle(){
+
+        System.out.println("tackle");
+    }
+
+    void pass (){
+
+        System.out.println("pass");
+    }
+
+    void cross (){
+
+        System.out.println("cross");
+    }
+
+    void head (){
+
+        System.out.println("head");
+    }
+
+    void score (){
+
+        System.out.println("Scores!!!!");
+    }
+
 
 }
