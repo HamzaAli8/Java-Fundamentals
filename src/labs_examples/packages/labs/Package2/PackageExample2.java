@@ -9,7 +9,7 @@ public class PackageExample2 {
 
     public static void unprotectedExample(){
 
-        System.out.println("I am in a default method");
+        System.out.println("I am in a public method");
 
     }
 }
