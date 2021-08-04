@@ -12,7 +12,7 @@ public class Enhanced {
     static void playBlackJack() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Name: ");
+        System.out.println("Hi welcome BlackJack please enter your name: ");
         String name = scanner.next();
         Player user = new Player(name);
         Player computer = new Player();
@@ -21,15 +21,14 @@ public class Enhanced {
 
         while (user.potValue > 0) {
 
-
-
             System.out.println("You have: " + user.potValue + " ,how much would you like to bet?");
             int bet = scanner.nextInt();
 
 
             if (bet > user.potValue) {
-                System.out.println("Not enough money to bet");
-                break;
+                System.out.println("Not enough money to bet!!");
+                System.out.println("Please provide input not more than your pot");
+                continue;
             }
 
             boolean endRound = false;
@@ -62,6 +61,7 @@ public class Enhanced {
                     if (user.hand.checkHandValue()) {
 
                         System.out.println("Bust! Hand currently valued at:" + user.hand.calculateScore());
+                        user.potValue -= bet;
                         break;
                     }
                     System.out.println("Would user like another card? (Y/N)");
@@ -73,6 +73,7 @@ public class Enhanced {
                     if (user.hand.checkHandValue()) {
                         System.out.println("You bust! Hand currently valued at:" + user.hand.calculateScore());
                         endRound = true;
+                        user.potValue -= bet;
                         break;
                     }
                 }
@@ -85,6 +86,7 @@ public class Enhanced {
                     if (computer.hand.handValue > 21) {
 
                         System.out.println("Computer bust! Hand currently valued at" + computer.hand.calculateScore());
+                        user.potValue += bet;
                         endRound = true;
                     }
                     computer.printHand();
@@ -98,8 +100,10 @@ public class Enhanced {
 
                         System.out.println("Computer Wins");
                         endRound = true;
+                        user.potValue -= bet;
                     } else System.out.println("You win") ;
                     endRound = true;
+                    user.potValue += bet;
                 } else if (computer.hand.handValue > 21 && user.hand.handValue > 21) {
 
                     System.out.println("Nobody wins");
@@ -115,14 +119,19 @@ public class Enhanced {
 
                     System.out.println("You win!!");
                     endRound = true;
+                    user.potValue += bet;
 
-                } else System.out.println("Computer wins");
+                } else if (user.hand.handValue > 21){
+
+                System.out.println("Computer wins");
                 endRound = true;
+                user.potValue -= bet;
+                }
 
                 System.out.println("Computer score: " + computer.hand.calculateScore());
                 System.out.println("Your score :" + user.hand.calculateScore());
 
-                firstDeck.emptyDeck();
+                firstDeck.refreshDeck();
 
 
             }

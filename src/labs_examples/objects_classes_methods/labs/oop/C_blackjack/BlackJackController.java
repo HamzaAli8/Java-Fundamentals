@@ -24,7 +24,7 @@ public class BlackJackController {
         Player computer = new Player();
 
 
-
+        System.out.println(name + " here are your first 2 cards");
         firstDeck.deal(user);
         firstDeck.deal(user);
         user.printHand();
@@ -45,46 +45,30 @@ public class BlackJackController {
         while (endRound == false) {
 
             System.out.println("Would user like another card? (Y/N)");
-
             String response = scanner.next();
-            if (response.equalsIgnoreCase("Y")) {
+            while(response.equalsIgnoreCase("Y")) {
                 firstDeck.deal(user);
                 user.printHand();
                 System.out.println("Your hand is valued at :" + user.hand.calculateScore());
                 if (user.hand.checkHandValue()) {
-
                     System.out.println("Bust! Hand currently valued at:" + user.hand.calculateScore());
+                    endRound = true;
                     break;
                 }
                 System.out.println("Would user like another card? (Y/N)");
                 response = scanner.next();
-                if (response.equalsIgnoreCase("Y"))
-                    firstDeck.deal(user);
-                user.printHand();
-                System.out.println("Your hand is valued at :" + user.hand.calculateScore());
-                if (user.hand.checkHandValue()) {
-                    System.out.println("You bust! Hand currently valued at:" + user.hand.calculateScore());
-                    endRound = true;
-                    break;
-                }
             }
+            if (computer.computerAI()) {
+                firstDeck.deal(computer);
+                if (computer.hand.handValue > 21) {
 
-
-
-                if (computer.computerAI()) {
-
-                    firstDeck.deal(computer);
-                    if (computer.hand.handValue > 21) {
-
-                        System.out.println("Computer bust! Hand currently valued at" + computer.hand.calculateScore());
-                        endRound = true;
+                    System.out.println("Computer bust! Hand currently valued at" + computer.hand.calculateScore());
+                    endRound = true;
                     }
                     computer.printHand();
                     System.out.println("Computer hand is valued at: " +
                             computer.hand.calculateScore());
-                }
-
-
+            }
             if (computer.hand.handValue <= 21 && user.hand.handValue <= 21) {
                 if (computer.hand.handValue > user.hand.handValue) {
 

@@ -32,11 +32,12 @@ public class Deck {
         }
     }
 
-    public void emptyDeck(){
+    public void refreshDeck(){
 
         deck.clear();
-        createDeck();
         deck = new ArrayList<Card>();
+        createDeck();
+
     }
 
 
