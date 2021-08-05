@@ -18,9 +18,19 @@ public class Hand {
         handValue= 0;
         for(Card c: cards){
 
-            handValue = c.getCardValue() + handValue; }
-        return handValue;
+            handValue = c.getCardValue() + handValue;
 
+            if(c.rank == "Ace"){
+
+                if(handValue > 10){
+
+                    handValue += 0;
+                }
+
+                else handValue += 10;
+            }
+        }
+        return handValue;
     }
 
     public boolean checkHandValue(){

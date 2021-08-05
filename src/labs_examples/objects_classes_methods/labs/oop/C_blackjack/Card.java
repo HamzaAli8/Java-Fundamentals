@@ -8,7 +8,6 @@ public class Card {
     String rank;
 
 
-
     public Card(char suit, String rank) {
 
         this.suit = suit;
@@ -24,7 +23,6 @@ public class Card {
     }
 
     public int getCardValue() {
-
 
         switch (rank) {
 
@@ -54,10 +52,8 @@ public class Card {
                 return 10;
             case "King":
                 return 10;
-            default:
-                return 0;
 
+                default: return 0;
         }
-
     }
 }

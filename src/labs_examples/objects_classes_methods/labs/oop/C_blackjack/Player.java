@@ -2,7 +2,7 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 import java.util.Scanner;
 
-public class Player {
+public class Player extends Exception {
 
     String name;
     Hand hand;
@@ -53,17 +53,27 @@ public class Player {
 
     public void handleBet() {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("You have: " + potValue + " ,how much would you like to bet?");
-        int bet = scanner.nextInt();
-        while (bet > potValue) {
-            System.out.println("Not enough money to bet!!");
-            System.out.println("Please provide input not more than your pot");
-            System.out.println("You have: " + potValue + " ,how much would you like to bet?");
-            bet = scanner.nextInt();
+        try {
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
+            int bet = scanner.nextInt();
+            while (bet > potValue) {
+                System.out.println("Not enough money to bet!");
+                System.out.println("Please provide input not more than your pot");
+                System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
+                bet = scanner.nextInt();
+            }
+            this.bet = bet;
         }
 
-        this.bet = bet;
+        catch (Exception exc ){
+
+            System.out.println("Something went wrong.");
+            System.out.println("Please enter number value");
+
+        }
+
 
     }
 

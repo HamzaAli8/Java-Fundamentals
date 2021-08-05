@@ -50,8 +50,16 @@ public class Enhanced2 {
 
 
         }
+        if(user.potValue > 0){
 
-        System.out.println("Thanks for playing!");
+            System.out.println("Thanks for playing!" + "\nWell done you leave with $" + user.potValue);
+        }
+
+        else {
+            System.out.println("Game over :(");
+            System.out.println("Remember the house always wins! ;)");
+        }
+
     }
 
     private boolean checkForNewGame() {
@@ -69,7 +77,7 @@ public class Enhanced2 {
 
     private void printScores(Player user, Player computer) {
 
-        System.out.println("Computer score: " + computer.hand.calculateScore());
+        System.out.println("Dealer score: " + computer.hand.calculateScore());
         computer.printHand();
         System.out.println();
         System.out.println("Your score :" + user.hand.calculateScore());
@@ -81,27 +89,30 @@ public class Enhanced2 {
     {
         if (computer.hand.handValue <= 21 && user.hand.handValue <= 21) {
             if (computer.hand.handValue > user.hand.handValue) {
-                System.out.println("Computer Wins1");
+                System.out.println("Dealer wins");
                 user.potValue -= user.bet;
+            }
+            else if(computer.hand.handValue == user.hand.handValue)
+            {   System.out.println("PUSH");
 
             }
             else  {user.potValue += user.bet;
-            System.out.println("You win1");}
+            System.out.println("You win " + "$" + user.bet);}
         }
         else if (computer.hand.handValue == user.hand.handValue)
-        {System.out.println("nobody wins");}
+        {System.out.println("PUSH");}
 
         else if (computer.hand.handValue > 21 && user.hand.handValue > 21) {
-            System.out.println("Nobody wins"); }
+            System.out.println("PUSH"); }
 
         else if (computer.hand.handValue > 21) {
 
-            System.out.println("You win2");
+            System.out.println("You win " + "$" + user.bet);
             user.potValue += user.bet;
         }
 
         else {
-            System.out.println("Computer wins2");
+            System.out.println("Dealer wins");
             user.potValue -= user.bet;
         }
     }
@@ -114,7 +125,7 @@ public class Enhanced2 {
         while(computer.computerAI()) {
             deck.deal(computer);
             if (computer.hand.handValue > 21) {
-                System.out.println("Computer bust! Hand currently valued at" + computer.hand.calculateScore());
+                System.out.println("Dealer bust! Hand currently valued at" + computer.hand.calculateScore());
                 return true;
             }
         }
@@ -146,7 +157,7 @@ public class Enhanced2 {
         System.out.println("");
         System.out.println("Your hand is valued at:  " + user.hand.calculateScore());
 
-        System.out.println("Computer cards: ");
+        System.out.println("Dealer cards: ");
         computer.compPrintHand();
     }
 
@@ -170,7 +181,7 @@ public class Enhanced2 {
 
     private  Player initialisePlayer() {
 
-        System.out.println("Hi welcome to BlackJack,  please enter your name: ");
+        System.out.println("Hi welcome to BlackJack,please enter your name: ");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
         Player user = new Player(name);
