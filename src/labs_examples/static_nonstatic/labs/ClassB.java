@@ -4,17 +4,17 @@ public class ClassB {
 
     public static void main(String[] args) {
 
-       // StatMethod();
+        StatMethod();
 
-        //ClassB obj = new ClassB();
+        ClassB obj = new ClassB();
 
-        //obj.NonStatMethod();
+        obj.NonStatMethod();
 
-        //ClassA.StatMethod();
+        ClassA.StatMethod();
 
-        //ClassA obj2 = new ClassA();
+        ClassA obj2 = new ClassA();
 
-        //obj2.NonStatMethod();
+        obj2.NonStatMethod();
 
 
     }
@@ -28,16 +28,16 @@ public class ClassB {
 
         System.out.println("Non-static method Class B");
 
-        //NonStatMethod2();
-        //StatMethod();
+        NonStatMethod2();
+        StatMethod();
     }
 
     void NonStatMethod2(){
 
         System.out.println("Non-static method2 Class B");
 
-        //ClassA obj3 = new ClassA();
-        //obj3.NonStatMethod();
+        ClassA obj3 = new ClassA();
+        obj3.NonStatMethod();
 
 
         ClassA.StatMethod();

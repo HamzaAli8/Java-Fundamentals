@@ -19,7 +19,7 @@ public class ClassA {
 
     void NonStatMethod(){
 
-        System.out.println("Non-static method Class A");
+        System.out.println("Non-static method Class A ");
 
         ClassB.StatMethod();
 
