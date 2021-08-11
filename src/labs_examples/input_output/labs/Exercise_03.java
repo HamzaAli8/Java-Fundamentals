@@ -14,13 +14,97 @@ import java.io.*;
 public class Exercise_03 {
     public static void main(String[] args) {
 
-        DataOutputStream();
+        //DataOutputStream();
 
-        DataInputStream();
+        //DataInputStream();
 
-        CharWriter();
+        //CharWriter();
 
-        PrintWriter();
+        //PrintWriter();
+
+        //BufferedStream();
+
+        BufferWrite();
+
+
+
+    }
+
+
+
+    static void BufferWrite(){
+
+        String file = "/Users/Hamza/Desktop/sample1.txt";
+        String s = "/Users/Hamza/Desktop/sample1new.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(s))) {
+
+            char[] buffer = new char[5];
+
+            int g;
+
+            while ((g = br.read(buffer)) != -1) {
+
+                System.out.println((char)g);
+
+
+
+            }
+
+        }
+
+        catch (IOException e){
+
+
+            System.out.println("Exception thrown");
+
+        }
+
+
+
+
+
+    }
+
+    static void BufferedStream(){
+
+        String readFilepath = "/Users/Hamza/Desktop/sample1.txt";
+        String writeFilepath = "/Users/Hamza/Desktop/sample1Ext.txt";
+
+
+        try (FileInputStream fin = new FileInputStream(readFilepath);BufferedInputStream bin = new BufferedInputStream(fin);
+             FileOutputStream fOut = new FileOutputStream(writeFilepath);BufferedOutputStream bOut = new BufferedOutputStream(fOut))
+
+        {
+
+            byte [] buffer = new byte[5];
+
+            int bytesRead = 0;
+
+            while((bytesRead = bin.read(buffer)) != -1) {
+;
+
+             bOut.write(buffer);
+
+            }
+
+
+
+
+
+        }
+
+        catch (IOException e){
+
+
+            e.printStackTrace();
+            System.out.println("File exception thrown");
+        }
+
+
+
+
 
     }
 

@@ -51,31 +51,15 @@ public class Player extends Exception {
 
     }
 
-    public void handleBet() {
+    public void handleBet() throws Exception {
 
-        try {
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
-            int bet = scanner.nextInt();
-            while (bet > potValue) {
-                System.out.println("Not enough money to bet!");
-                System.out.println("Please provide input not more than your pot");
+            do{
+                Scanner scanner = new Scanner(System.in);
                 System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
                 bet = scanner.nextInt();
-            }
-            this.bet = bet;
-        }
-
-        catch (Exception exc ){
-
-            System.out.println("Something went wrong.");
-            System.out.println("Please enter number value");
-
-        }
-
-
+            } while (bet > potValue);
     }
+
 
     @Override
     public String toString() {

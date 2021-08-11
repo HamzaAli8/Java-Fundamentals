@@ -3,11 +3,11 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 import java.util.Scanner;
 
-public class Enhanced2 {
+public class BlackJackController_Final {
 
     public static void main(String[] args) {
 
-        Enhanced2 obj = new Enhanced2();
+        BlackJackController_Final obj = new BlackJackController_Final();
         obj.playBlackJack();
 
     }
@@ -23,7 +23,15 @@ public class Enhanced2 {
 
             refreshGame(user,computer,deck);
 
-            user.handleBet();
+            try {user.handleBet();}
+
+            catch (Exception e){
+
+                e.printStackTrace();
+                System.out.println("incorrect input");
+            }
+
+
             boolean endRound = false;
 
             dealInitialCards(user, computer, deck);
@@ -72,7 +80,11 @@ public class Enhanced2 {
 
             return false;
         }
+
+        Hand.numberOfGames ++;
+        System.out.println("Number of games played: " + Hand.numberOfGames);
         return true;
+
     }
 
     private void printScores(Player user, Player computer) {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Hand {
 
     ArrayList<Card> cards;
+    static int numberOfGames;
     int handValue;
 
     public Hand(){
@@ -42,6 +43,8 @@ public class Hand {
 
         else return false;
     }
+
+
 
 }
 
