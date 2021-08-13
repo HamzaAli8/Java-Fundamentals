@@ -23,14 +23,7 @@ public class BlackJackController_Final {
 
             refreshGame(user,computer,deck);
 
-            try {user.handleBet();}
-
-            catch (Exception e){
-
-                e.printStackTrace();
-                System.out.println("incorrect input");
-            }
-
+            user.handleBet();
 
             boolean endRound = false;
 
@@ -43,31 +36,25 @@ public class BlackJackController_Final {
                 endRound = dealUserAdditionalCards(user, deck);
                 endRound = dealComputerAdditionalCards(computer, deck);
 
-
                 determineWinner(user, computer);
 
                 printScores(user, computer);
-
             }
-            if (user.potValue > 0){
 
+            if (user.potValue > 0){
                 newGame = checkForNewGame();
             }
 
             else break;
-
-
         }
+
         if(user.potValue > 0){
 
             System.out.println("Thanks for playing!" + "\nWell done you leave with $" + user.potValue);
-        }
-
-        else {
+        } else {
             System.out.println("Game over :(");
             System.out.println("Remember the house always wins! ;)");
         }
-
     }
 
     private boolean checkForNewGame() {
@@ -76,15 +63,11 @@ public class BlackJackController_Final {
         System.out.println("Would you like to play another game? (Y/N)");
         String input = scanner.next();
 
-        if (input.equalsIgnoreCase("n")){
-
+        if (input.equalsIgnoreCase("n")) {
             return false;
         }
 
-        Hand.numberOfGames ++;
-        System.out.println("Number of games played: " + Hand.numberOfGames);
         return true;
-
     }
 
     private void printScores(Player user, Player computer) {
@@ -97,40 +80,49 @@ public class BlackJackController_Final {
         System.out.println();
     }
 
+    /**
+     * This method determines who out of the user and or the computer has won the round.
+     *
+     * @param user - The user player object.
+     * @param computer - The dealer player object.
+     */
     private void determineWinner(Player user, Player computer)
     {
+        boolean playerWins = false;
+
         if (computer.hand.handValue <= 21 && user.hand.handValue <= 21) {
             if (computer.hand.handValue > user.hand.handValue) {
                 System.out.println("Dealer wins");
                 user.potValue -= user.bet;
             }
-            else if(computer.hand.handValue == user.hand.handValue)
-            {   System.out.println("PUSH");
-
+            else if(computer.hand.handValue == user.hand.handValue){
+                System.out.println("PUSH");
             }
-            else  {user.potValue += user.bet;
-            System.out.println("You win " + "$" + user.bet);}
-        }
-        else if (computer.hand.handValue == user.hand.handValue)
-        {System.out.println("PUSH");}
-
-        else if (computer.hand.handValue > 21 && user.hand.handValue > 21) {
-            System.out.println("PUSH"); }
-
-        else if (computer.hand.handValue > 21) {
-
+            else  {
+                user.potValue += user.bet;
+                System.out.println("You win " + "$" + user.bet);
+                playerWins = true;
+            }
+        } else if (computer.hand.handValue == user.hand.handValue) {
+            System.out.println("PUSH");
+        } else if (computer.hand.handValue > 21 && user.hand.handValue > 21) {
+            System.out.println("PUSH");
+        } else if (computer.hand.handValue > 21) {
             System.out.println("You win " + "$" + user.bet);
             user.potValue += user.bet;
-        }
-
-        else {
+            playerWins = true;
+        } else {
             System.out.println("Dealer wins");
             user.potValue -= user.bet;
         }
+        user.setGamesPlayed(user.getGamesPlayed() + 1);
+        if(playerWins){
+
+            user.setGamesWon(user.getGamesWon() + 1);
+        }
+        System.out.println("Number of games played: " + user.getGamesPlayed());
+        System.out.println("Number of games won:  " + user.getGamesWon());
     }
-
-
-
 
     private boolean dealComputerAdditionalCards(Player computer, Deck deck) {
 

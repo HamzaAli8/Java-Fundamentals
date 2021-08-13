@@ -8,6 +8,8 @@ public class Player extends Exception {
     Hand hand;
     int potValue;
     int bet;
+    private int gamesPlayed;
+    private int gamesWon;
 
 
     public Player(String name){
@@ -51,15 +53,38 @@ public class Player extends Exception {
 
     }
 
-    public void handleBet() throws Exception {
-
-            do{
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
+    public void handleBet() {
+        bet = -1;
+        do{
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Pot: $" + potValue + "\nHow much would you like to bet?");
+            try {
                 bet = scanner.nextInt();
-            } while (bet > potValue);
+            } catch (Exception e){
+                System.out.println("Please enter a valid integer");
+            }
+            if (bet > potValue){
+
+                System.out.println("Please enter value less than or equal to "+ potValue);
+            }
+        } while (bet > potValue || bet == -1);
     }
 
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    public void setGamesPlayed(int gamesPlayed) {
+        this.gamesPlayed = gamesPlayed;
+    }
+
+    public int getGamesWon() {
+        return gamesWon;
+    }
+
+    public void setGamesWon(int gamesWon) {
+        this.gamesWon = gamesWon;
+    }
 
     @Override
     public String toString() {

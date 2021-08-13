@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Freshman implements Serializable {
 
-    private String sex;
+    private String gender;
     private String weightSept;
     private String weightApr;
     private String bmiSept;
@@ -12,7 +12,7 @@ public class Freshman implements Serializable {
 
 
     public void setSex(String sex) {
-        this.sex = sex;
+        this.gender = sex;
     }
 
     public void setWeightSept(String weightSept) {
@@ -34,7 +34,7 @@ public class Freshman implements Serializable {
     @Override
     public String toString() {
         return "Freshman{" +
-                "sex='" + sex + '\'' +
+                "sex='" + gender + '\'' +
                 ", weightSept='" + weightSept + '\'' +
                 ", weightApr='" + weightApr + '\'' +
                 ", bmiSept='" + bmiSept + '\'' +

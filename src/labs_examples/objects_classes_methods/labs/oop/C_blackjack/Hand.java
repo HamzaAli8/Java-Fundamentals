@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Hand {
 
     ArrayList<Card> cards;
-    static int numberOfGames;
     int handValue;
 
     public Hand(){
@@ -16,6 +15,7 @@ public class Hand {
 
     public int calculateScore()
     {
+        boolean hasAce = false;
         handValue= 0;
         for(Card c: cards){
 
@@ -23,12 +23,12 @@ public class Hand {
 
             if(c.rank == "Ace"){
 
-                if(handValue > 10){
-
+                if(!hasAce) {
+                    handValue += 10;
+                    hasAce = true;
+                }else {
                     handValue += 0;
                 }
-
-                else handValue += 10;
             }
         }
         return handValue;

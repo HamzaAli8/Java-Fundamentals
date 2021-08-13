@@ -1,6 +1,7 @@
 package labs_examples.input_output.labs;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 
@@ -53,7 +54,7 @@ public class Exercise_04 {
             for(Freshman f : freshmen){
 
 
-                objOut.writeObject(freshmen);
+                objOut.write(f.toString().getBytes(StandardCharsets.UTF_8));
             }
 
         }
