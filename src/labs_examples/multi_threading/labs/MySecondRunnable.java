@@ -7,7 +7,7 @@ public class MySecondRunnable implements Runnable {
 
     public MySecondRunnable(String name){
 
-        thread = new Thread(this, "Thread newRunnable");
+        thread = new Thread(this,name);
 
         thread.start();
 

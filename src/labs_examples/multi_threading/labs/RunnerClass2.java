@@ -4,7 +4,9 @@ public class RunnerClass2 {
 
     public static void main(String[] args) {
 
-        MySecondRunnable r2 = new MySecondRunnable("Thread");
+        MySecondRunnable r2 = new MySecondRunnable("ThreadHG");
+
+
 
         
     }
