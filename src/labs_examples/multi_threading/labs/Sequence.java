@@ -1,5 +1,8 @@
 package labs_examples.multi_threading.labs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Multithreading Exercise 6:
  *
@@ -9,10 +12,19 @@ package labs_examples.multi_threading.labs;
 
 public class Sequence {
 
+    public static List<Integer> Box = new ArrayList<>();
+
 
     public static void main(String[] args) {
 
-        IncrementEven t2 = new IncrementEven("Even");
-        IncrementOdd t1 = new IncrementOdd("Odd");
+        IncrementOdd r1 = new IncrementOdd();
+        IncrementEven r2 = new IncrementEven();
+
+        Thread t1 = new Thread(r2,"Even Thread");
+        Thread t2 = new Thread(r1, "Odd Thread");
+
+        t1.start();
+        try {Thread.sleep(20); } catch (InterruptedException e) { e.printStackTrace(); }
+        t2.start();
     }
 }
