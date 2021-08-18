@@ -24,14 +24,11 @@ public class Player extends Exception {
     public Player() {
 
         hand = new Hand();
-
     }
 
     public void printHand() {
 
         for(Card c: hand.cards){
-
-
 
             System.out.print(c.toString() + " | ");
         }
@@ -41,8 +38,6 @@ public class Player extends Exception {
 
         System.out.println( hand.cards.get(0).toString() +
                 " and [Hidden] ");
-
-
     }
 
 
@@ -52,6 +47,11 @@ public class Player extends Exception {
         return hand.handValue < 17;
 
     }
+
+    /**
+     * This method works by ensuring that the user inputs the correct value amount in
+     * their bets and to input the correct data (integer).
+     */
 
     public void handleBet() {
         bet = -1;

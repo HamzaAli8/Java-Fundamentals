@@ -11,7 +11,6 @@ public class Deck {
     String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "Jack", "Queen", "King"};
 
-
     public Deck(){
 
         deck = new ArrayList<Card>();
@@ -19,7 +18,10 @@ public class Deck {
         usedCards = new ArrayList<Integer>();
     }
 
-
+    /**
+     * This method loops through both the suits and ranks, then sequential adds them to the deck. A card object
+     * is created and then added onto the deck.
+     */
 
     public void  createDeck(){
 
@@ -32,17 +34,7 @@ public class Deck {
         }
     }
 
-    public void refreshDeck(){
-
-        deck.clear();
-        deck = new ArrayList<Card>();
-        createDeck();
-
-    }
-
-
-
-   public String toString(){
+    public String toString(){
         String deckCard = "";
         int i = 1;
         for(Card aCard: deck){
@@ -52,6 +44,12 @@ public class Deck {
        }
      return deckCard;
     }
+
+    /** This method works by dealing a set of random cards to a player (user or computer). It takes a player
+     * object as a parameter and deals that a object cards from deck.
+     *
+     * @param player
+     */
 
     public void deal(Player player){
 
@@ -67,8 +65,6 @@ public class Deck {
 
         player.hand.cards.add(deck.get(num));
     }
-
-
 }
 
 

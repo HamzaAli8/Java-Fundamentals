@@ -9,10 +9,8 @@ public class BlackJackController_Final {
 
         BlackJackController_Final obj = new BlackJackController_Final();
         obj.playBlackJack();
-
     }
-
-     void playBlackJack() {
+    void playBlackJack() {
 
         Player user = initialisePlayer();
         Player computer = new Player();
@@ -66,9 +64,16 @@ public class BlackJackController_Final {
         if (input.equalsIgnoreCase("n")) {
             return false;
         }
-
         return true;
     }
+
+    /**
+     * This method takes the scores from both the user and the computer and prints their
+     * relative scores onto the command line.
+     *
+     * @param user
+     * @param computer
+     */
 
     private void printScores(Player user, Player computer) {
 
@@ -79,7 +84,6 @@ public class BlackJackController_Final {
         user.printHand();
         System.out.println();
     }
-
     /**
      * This method determines who out of the user and or the computer has won the round.
      *
@@ -124,6 +128,15 @@ public class BlackJackController_Final {
         System.out.println("Number of games won:  " + user.getGamesWon());
     }
 
+    /**
+     * This method checks the value of the hand that the computer has been dealt and depending on that value
+     * hand the computer will be dealt additional card/s.
+     *
+     * @param computer
+     * @param deck
+     * @return
+     */
+
     private boolean dealComputerAdditionalCards(Player computer, Deck deck) {
 
         while(computer.computerAI()) {
@@ -135,6 +148,15 @@ public class BlackJackController_Final {
         }
         return true;
     }
+
+    /**
+     * This methods prompts the user should they require any additional cards, and depending on the response
+     * the user is given an additional card or is allowed to stand on their current set of cards.
+     *
+     * @param user
+     * @param deck
+     * @return
+     */
 
     private boolean dealUserAdditionalCards(Player user, Deck deck) {
 
@@ -155,15 +177,29 @@ public class BlackJackController_Final {
         return true;
     }
 
+    /**
+     * This methods works by taking the both the user and computer's first two cards and displays
+     * them onto the console. The computer's hand has the extra functionality that only the first card is shown.
+     * @param user
+     * @param computer
+     */
+
     private void displayHands(Player user, Player computer) {
+
         System.out.println("Here are your first 2 cards:");
         user.printHand();
         System.out.println("");
         System.out.println("Your hand is valued at:  " + user.hand.calculateScore());
-
         System.out.println("Dealer cards: ");
         computer.compPrintHand();
     }
+
+    /**
+     * This method simply deals the first two cards for both the user player and computer player.
+     * @param user
+     * @param computer
+     * @param deck
+     */
 
     private void dealInitialCards(Player user, Player computer, Deck deck) {
 
@@ -174,7 +210,12 @@ public class BlackJackController_Final {
         deck.deal(computer);
     }
 
-
+    /** This method starts the game from anew, a new deck is set up. The user and the computer are
+     * both dealt a new hand from the new deck.
+     * @param user
+     * @param computer
+     * @param deck
+     */
 
     private void refreshGame(Player user, Player computer, Deck deck) {
 
@@ -183,15 +224,19 @@ public class BlackJackController_Final {
         computer.hand = new Hand();
     }
 
+    /**
+     * This method introduce the player to the game and return a player object that takes
+     * a string parameter for the user 'name'. A message is printed onto the console with the name
+     * entered from the scanner.
+     * @return
+     */
     private  Player initialisePlayer() {
 
-        System.out.println("Hi welcome to BlackJack,please enter your name: ");
+        System.out.println("Hi welcome to BlackJack, please enter your name: ");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
         Player user = new Player(name);
 
         return user;
-
-
     }
 }

@@ -19,8 +19,12 @@ public class Card {
         String card = rank + suit;
 
         return card;
-
     }
+
+    /**
+     * This method looks at the 'rank' value of a card and returns an int value corresponding to the rank.
+     * @return
+     */
 
     public int getCardValue() {
 
