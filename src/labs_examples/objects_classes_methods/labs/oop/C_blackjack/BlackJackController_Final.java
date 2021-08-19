@@ -23,21 +23,17 @@ public class BlackJackController_Final {
 
             user.handleBet();
 
-            boolean endRound = false;
-
             dealInitialCards(user, computer, deck);
 
-            while (!endRound) {
+            displayHands(user, computer);
 
-                displayHands(user, computer);
+            dealUserAdditionalCards(user, deck);
+            dealComputerAdditionalCards(computer, deck);
 
-                endRound = dealUserAdditionalCards(user, deck);
-                endRound = dealComputerAdditionalCards(computer, deck);
+            determineWinner(user, computer);
 
-                determineWinner(user, computer);
+            printScores(user, computer);
 
-                printScores(user, computer);
-            }
 
             if (user.potValue > 0){
                 newGame = checkForNewGame();
@@ -134,19 +130,16 @@ public class BlackJackController_Final {
      *
      * @param computer
      * @param deck
-     * @return
      */
 
-    private boolean dealComputerAdditionalCards(Player computer, Deck deck) {
+    private void dealComputerAdditionalCards(Player computer, Deck deck) {
 
         while(computer.computerAI()) {
             deck.deal(computer);
             if (computer.hand.handValue > 21) {
                 System.out.println("Dealer bust! Hand currently valued at" + computer.hand.calculateScore());
-                return true;
             }
         }
-        return true;
     }
 
     /**
@@ -155,10 +148,9 @@ public class BlackJackController_Final {
      *
      * @param user
      * @param deck
-     * @return
      */
 
-    private boolean dealUserAdditionalCards(Player user, Deck deck) {
+    private void dealUserAdditionalCards(Player user, Deck deck) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Would user like another card? (Y/N)");
@@ -169,12 +161,10 @@ public class BlackJackController_Final {
             System.out.println("Your hand is valued at :" + user.hand.calculateScore());
             if (user.hand.checkHandValue()) {
                 System.out.println("Bust! Hand currently valued at:" + user.hand.calculateScore());
-                return true;
             }
             System.out.println("Would user like another card? (Y/N)");
             response = scanner.next();
         }
-        return true;
     }
 
     /**
