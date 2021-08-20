@@ -1,6 +1,8 @@
 package labs_examples.generics.labs;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -24,11 +26,92 @@ import java.util.Scanner;
 class Generic{
 
 
+
     public <T extends Number> double add (T x, T y){
 
 
         return x.doubleValue() + y.doubleValue();
     }
+
+
+    public <T extends String> void isPalindrome(T [] array){
+
+        int count = 0;
+
+        for(T element : array){
+
+
+            T original;
+
+            String reverse = "";
+
+            original = element;
+
+            int length = original.length();
+
+            for(int i = length -1; i >= 0; i--){
+
+                reverse = reverse + original.charAt(i);
+            }
+            if (original.equalsIgnoreCase(reverse)){
+
+
+                System.out.println("String entered is a palindrome");
+
+                count++;
+
+
+            }
+
+            else System.out.println("String not a palindrome");
+        }
+        System.out.println(count);
+    }
+
+
+    public <T extends Number> void swap(T [] array){
+
+
+
+        for(T element : array){
+
+
+            T temp = null;
+
+            temp = array[0];
+
+            array[0] = array[array.length - 1];
+
+            array[array.length - 1] = temp;
+        }
+
+        System.out.println(Arrays.toString(array));
+}
+
+    public <T extends Double > void biggest(T [] array){
+
+        T max = array[0];
+
+        for (T element : array){
+
+            if(max.compareTo(element) < 0){
+
+                max = element;
+            }
+
+        }
+
+        System.out.println(max.doubleValue());
+
+
+
+
+    }
+
+
+
+
+
 
 
 
@@ -41,17 +124,25 @@ class Generic{
 
 //        System.out.println(g1.add(3,4));
 
-        String original, reverse = ""; // Objects of String class
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter a string/number to check if it is a palindrome");
-        original = in.nextLine();
-        int length = original.length();
-        for ( int i = length - 1; i >= 0; i-- )
-            reverse = reverse + original.charAt(i);
-        if (original.equals(reverse))
-            System.out.println("Entered string/number is a palindrome.");
-        else
-            System.out.println("Entered string/number isn't a palindrome.");
+
+//        Generic g2 = new Generic();
+
+//        String [] stArray = {"peep", "honest", "loud", "boob", "kik" };
+
+//        g2.isPalindrome(stArray);
+
+          Generic g3 = new Generic();
+
+          Integer [] IArray = {65,4,12,3,66,98,43};
+
+          Double [] DArray = {3.56,8.88,3.66,4.22,8.87};
+
+//        g3.swap(IArray);
+
+          g3.biggest(DArray);
+
+
+
 
 
 

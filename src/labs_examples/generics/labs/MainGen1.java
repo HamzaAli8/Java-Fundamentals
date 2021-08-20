@@ -10,9 +10,12 @@ public class MainGen1 {
 
         GenericClass1 <String> ob4 = new GenericClass1<>("Hamza", "Ali");
 
+        GenericClass1 <Long> ob5 = new GenericClass1<>(34930048549L, 400394030040940L);
+
         System.out.println(ob4);
         System.out.println(ob);
         System.out.println(ob3);
+        System.out.println(ob5);
 
     }
 }
