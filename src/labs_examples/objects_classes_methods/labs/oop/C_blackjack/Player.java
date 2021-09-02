@@ -26,6 +26,19 @@ public class Player extends Exception {
         hand = new Hand();
     }
 
+
+    public int countNumCards(){
+
+        int count = 0;
+
+        for(Card b: hand.cards){
+
+            count++;
+        }
+
+        return count;
+    }
+
     public void printHand() {
 
         for(Card c: hand.cards){
