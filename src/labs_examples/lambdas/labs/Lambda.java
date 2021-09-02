@@ -28,6 +28,15 @@ public class Lambda {
 
         System.out.println(obj3.multiply(3.6,3.99));
 
+        RunInterface3 obj5 = new RunInterface3() {
+            @Override
+            public double multiply(double x, double y) {
+                return x * y;
+            }
+        };
+
+        System.out.println(obj5.multiply(4.56,5.89));
+
         Predicate <Integer> obj4 = integer -> integer > 10;
         System.out.println(obj4.test(8));
 
