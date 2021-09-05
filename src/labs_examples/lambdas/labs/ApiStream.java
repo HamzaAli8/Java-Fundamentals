@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class ApiStream {
 
-    private static final String SEPARATOR = ",";
+
 
     public static void main(String[] args) {
 
@@ -63,16 +63,35 @@ public class ApiStream {
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))){
 
-        stream.map(lines -> Arrays.asList(lines.split(SEPARATOR)))
-                    .forEach(System.out::println);
-
-
-
+                stream.map(lines -> Arrays.asList(lines.split(",")))
+                        .forEach(System.out::println);
 
         } catch (IOException e){
 
             e.printStackTrace();
         }
+
+
+        List <Integer> numbers = Arrays.asList(3,5,6,7,8,9,10,2,3,4,5,6,3);
+
+
+        boolean answer = numbers.stream()
+                .allMatch(e -> e % 3 == 0);
+
+        System.out.println(answer);
+
+        Stream <String> names = Stream.of("Hamza", "Ryan","Ace", "John");
+
+        boolean answer2 = names.anyMatch(str -> str.length() > 4);
+
+        System.out.println(answer2);
+
+        Stream <String> names2 = Stream.of("Hamza", "Ryan","Ace", "John");
+
+        List <String> longNames = names2.filter(s -> s.length() > 3)
+                .collect(Collectors.toList());
+
+        System.out.println(longNames);
 
 
 
