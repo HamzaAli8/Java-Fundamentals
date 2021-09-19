@@ -29,10 +29,51 @@
  *
  *      7.) Write queries (and paste them below) for each of the following tasks:
  *          a. select all students
+
+            SELECT * FROM university.students;
+
  *          b. select all teacher who teach "Math" (choose a subject you included)
+
+             SELECT first_name, last_name, c.name
+             FROM teachers t
+             join teachers_courses tc
+             on tc.teachers_id = t.id
+             join courses c
+             on c.id = tc.courses_id
+             and c.name = 'mathematics';
+
  *          c. use a join query to select all students with a certain teacher
+
+            SELECT COUNT(s.id), s.first_name, s.last_name
+            FROM students s
+            JOIN students_courses sc
+            ON sc.student_id = s.id
+            JOIN courses c
+            ON c.id = sc.course_id
+            JOIN teachers_courses tc
+            ON tc.courses_id = sc.course_id
+            JOIN teachers t
+            ON tc.teachers_id = t.id
+            AND t.id = 50
+            group by s.id;
+
+
  *          d. use a join query to select all students with taking a certain subject
- *          e. update a record in the student table
+
+             SELECT COUNT(s.id), s.first_name, s.last_name
+             FROM students s
+             JOIN students_courses sc
+             ON sc.student_id = s.id
+             JOIN courses c
+             ON c.id = sc.course_id
+             JOIN teachers_courses tc
+             ON tc.courses_id = sc.course_id
+             JOIN teachers t
+             ON tc.teachers_id = t.id
+             AND c.id = 6
+             group by s.id;
+
+            e. update a record in the student table
  *          f. add a record to the teacher table
  *
  *       8.) Export the schema to a dump file and copy it to this folder.

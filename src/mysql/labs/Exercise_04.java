@@ -1,5 +1,7 @@
 package mysql.labs;
 
+import java.sql.*;
+
 
 /*
 *  MySQL Exercise 4:
@@ -18,7 +20,7 @@ package mysql.labs;
 
 public class Exercise_04 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /*
         Just as a casual example - each of these operations should be in it's own method. Feel free to
         create all required classes/methods to accomplish this.
@@ -37,6 +39,52 @@ public class Exercise_04 {
 
 
          */
+
+        String url = "jdbc:mysql://localhost:3306/flights?autoReconnect=true&useSSL=false";
+        String uName = "root";
+        String pass = "Kingsauduni14";
+        String query = "SELECT * FROM flights.Passenger";
+        String query2 = "INSERT INTO flights.Airport VALUES(?,?,?)";
+
+        String code = "MSP";
+        String city = "Minneapolis";
+        String state = "MI";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url,uName,pass);
+        PreparedStatement st = con.prepareStatement(query2);
+
+
+
+        st.setString(1,code);
+        st.setString(2,city);
+        st.setString(3,state);
+
+        int ch = st.executeUpdate();
+
+        System.out.println(ch);
+
+        //ResultSet rs = st.executeQuery();
+
+       // while(rs.next()){
+
+           // int id = rs.getInt("ID");
+           // String name = rs.getString("Name");
+           // String phone = rs.getString("Phone");
+
+           // System.out.println(id + " " + name + " "+ phone);
+        //}
+
+
+
+
+        st.close();
+        con.close();
+
+
+
+
+
     }
 
 }

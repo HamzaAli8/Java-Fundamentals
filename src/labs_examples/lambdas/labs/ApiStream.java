@@ -19,35 +19,35 @@ public class ApiStream {
     public static void main(String[] args) {
 
 
-        int[] array = IntStream.range(1,16)
-                .toArray();
+        ///int[] array = IntStream.range(1,16)
+                //.toArray();
 
 
-        Arrays.stream(array).forEach(System.out::print);
+        //Arrays.stream(array).forEach(System.out::print);
 
-        System.out.println();
+        //System.out.println();
 
-        System.out.println(Arrays.stream(array).sum());
-
-
-        IntStream.of(array).
-                map(element -> element * 2)
-                .forEach(System.out::print);
-
-        System.out.println();
+        //System.out.println(Arrays.stream(array).sum());
 
 
-        double x = IntStream.of(array)
-                .filter(element -> element < 10)
-                .average().getAsDouble();
+        //IntStream.of(array).
+                //map(element -> element * 2)
+                //.forEach(System.out::print);
 
-        System.out.println(x);
+        //System.out.println();
 
 
-        int y = IntStream.of(array).reduce((element1, element2)-> element1 + element2)
-                .getAsInt();
+        //double x = IntStream.of(array)
+                //.filter(element -> element < 10)
+               // .average().getAsDouble();
 
-        System.out.println(y);
+       // System.out.println(x);
+
+
+        //int y = IntStream.of(array).reduce((element1, element2)-> element1 + element2)
+                //.getAsInt();
+
+        //System.out.println(y);
 
         String fileName = "/Users/Hamza/Documents/CodingNomads/labs/online-java-fundamentals/src/labs_examples/lambdas/labs/stream_text_lab.csv";
 
@@ -72,26 +72,26 @@ public class ApiStream {
         }
 
 
-        List <Integer> numbers = Arrays.asList(3,5,6,7,8,9,10,2,3,4,5,6,3);
+        //List <Integer> numbers = Arrays.asList(3,5,6,7,8,9,10,2,3,4,5,6,3);
 
 
-        boolean answer = numbers.stream()
-                .allMatch(e -> e % 3 == 0);
+       // boolean answer = numbers.stream()
+               // .allMatch(e -> e % 3 == 0);
 
-        System.out.println(answer);
+        //System.out.println(answer);
 
-        Stream <String> names = Stream.of("Hamza", "Ryan","Ace", "John");
+      //  Stream <String> names = Stream.of("Hamza", "Ryan","Ace", "John");
 
-        boolean answer2 = names.anyMatch(str -> str.length() > 4);
+       // boolean answer2 = names.anyMatch(str -> str.length() > 4);
 
-        System.out.println(answer2);
+       // System.out.println(answer2);
 
-        Stream <String> names2 = Stream.of("Hamza", "Ryan","Ace", "John");
+       // Stream <String> names2 = Stream.of("Hamza", "Ryan","Ace", "John");
 
-        List <String> longNames = names2.filter(s -> s.length() > 3)
-                .collect(Collectors.toList());
+       // List <String> longNames = names2.filter(s -> s.length() > 3)
+               // .collect(Collectors.toList());
 
-        System.out.println(longNames);
+       // System.out.println(longNames);
 
 
 

@@ -5,9 +5,44 @@
 *   Now that you have your air travel database all set up and populated, please demonstrate how to:
 *
 *       1.) Query all flights on a specific day
+
+            SELECT * from
+            Flight f
+            JOIN FlightInstance fi
+            ON f.FLNO = fi.FLNO
+            AND fi.Fdate = '10/5/2020'
+
 *       2.) Query all flights between two specific cities on a specific day
-*       3.) Query all passengers on a specific flight between two specific cities today
+            SELECT * FROM
+            Flight f
+            JOIN FlightLeg fl
+            ON f.FLNO = fl.FLNO
+            JOIN Airport a
+            ON a.Code = fl.FromA OR a.Code = fl.ToA
+            WHERE fl.FromA = 'DFW' AND fl.ToA = 'LOG' AND fl.DeptTime = '1/1/2020 10:20';
+
+        3.) Query all passengers on a specific flight between two specific cities today
+
+            SELECT * FROM
+            Passenger p
+            JOIN Reservation r
+            ON p.ID = r.PassID
+            JOIN FlightLeg fl
+            ON fl.FLNO = r.FLNO
+            WHERE fl.FromA = 'LAX' AND fl.ToA = 'ORD'
+
+
 *       4.) Query the flight information for a specific passenger on a specific flight
+
+            SELECT * FROM
+            Passenger p
+            JOIN Reservation r
+            ON p.ID = r.PassID
+            JOIN FlightLeg fl
+            ON fl.FLNO = r.FLNO
+            WHERE p.ID = 2;
+
+
 *       5.) Query the passenger information for a specific user on a specific flight yesterday
 *       6.) Query the number of flights between two specific cities this week, month, and year
 *       7.) Query the number of passengers that travelled between two specific cities today, this week, month and year
