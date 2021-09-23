@@ -6,6 +6,7 @@ public class MyLinkedList<T> {
     Node<T> head;
     Node<T> previous;
     Node<T> current;
+    Node<T> delete;
 
     // add method
     public void addLast(T data) {
@@ -24,9 +25,9 @@ public class MyLinkedList<T> {
         current.setNext(new Node(data));
     }
 
-    public void addFirst(T data){
+    public void addFirst(T data) {
 
-        if (head == null){
+        if (head == null) {
             head = new Node<>(data);
             return;
         }
@@ -37,18 +38,18 @@ public class MyLinkedList<T> {
     // find method
     public T find(T data) throws Exception {
 
-        if(head == null){
+        if (head == null) {
             throw new Exception("Linked list is empty");
         }
-        if(head.getData() == data){
+        if (head.getData() == data) {
             return head.getData();
         }
 
         current = head;
-        while(current.getNext() != null){
+        while (current.getNext() != null) {
 
             current = current.getNext();
-            if(current.getData() == data){
+            if (current.getData() == data) {
 
                 return current.getData();
             }
@@ -57,11 +58,11 @@ public class MyLinkedList<T> {
     }
 
 
-    public void display(){
+    public void display() {
 
         current = head;
 
-        while(current.getNext() != null){
+        while (current.getNext() != null) {
 
             System.out.println(current.getData());
             current = current.getNext();
@@ -82,13 +83,13 @@ public class MyLinkedList<T> {
 
     }
 
-    public void removeLast(){
+    public void removeLast() {
 
-        if(head != null){
+        if (head != null) {
 
             current = head;
 
-            while(current.getNext() != null){
+            while (current.getNext() != null) {
 
                 previous = current;
                 current = current.getNext();
@@ -96,17 +97,29 @@ public class MyLinkedList<T> {
             previous.setNext(null);
 
         }
+    }
 
-        // Remove if element is in the middle of the list
+    public void removeMiddle(T data) {
 
-        
+        if (head != null) {
 
-        // Remove if element is at the end of the list
+            current = head;
 
+            while (current.getNext() != null) {
 
+                previous = current;
+                current = current.getNext();
+
+                if (current.getData() == data){
+
+                    previous.setNext(previous.getNext().getNext());
+                }
+
+            }
 
         }
 
-        // Element is not found
+    }
 }
+
 

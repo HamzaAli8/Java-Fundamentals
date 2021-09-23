@@ -8,23 +8,16 @@ public class Runner {
         MyLinkedList <Integer> list = new MyLinkedList<>();
 
         list.addFirst(3);
-        list.addFirst(3);
         list.addFirst(6);
         list.addLast(9);
         list.addFirst(8);
 
         list.display();
 
-        list.removeLast();
+        list.removeMiddle(3);
 
         System.out.println();
 
         list.display();
-
-
-
-
-
-
     }
 }
