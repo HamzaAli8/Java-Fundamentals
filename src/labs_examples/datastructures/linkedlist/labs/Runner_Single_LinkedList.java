@@ -1,6 +1,6 @@
 package labs_examples.datastructures.linkedlist.labs;
 
-public class Runner {
+public class Runner_Single_LinkedList {
 
     public static void main(String[] args) {
 
