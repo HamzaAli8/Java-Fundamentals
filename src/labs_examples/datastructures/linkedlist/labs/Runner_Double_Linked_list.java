@@ -9,9 +9,11 @@ public class Runner_Double_Linked_list {
         //list.addToEnd(3);
         list.addToStart(3);
         list.addToEnd(5);
-        list.addToEnd(9);
+        list.addToEnd(7);
 
-        list.addAfter(10,9);
+        list.addAfter(9,7);
+
+        list.deleteInMiddle(7);
 
 
 

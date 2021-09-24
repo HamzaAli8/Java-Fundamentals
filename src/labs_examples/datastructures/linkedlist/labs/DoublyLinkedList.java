@@ -67,6 +67,54 @@ public class DoublyLinkedList<N> {
         }
     }
 
+    public void deleteAtEnd (){
+
+        if (head == null){
+
+            head = head.getNext();
+        }
+
+        else{
+
+            current = head;
+
+            while(current.getNext() != null){
+
+                current = current.getNext();
+            }
+            current.getPrevious().setNext(null);
+        }
+     }
+
+     public void deleteAtStart(){
+
+        if(head == null){
+
+            head = head.getNext();
+        }
+        else{
+
+            head = head.getNext();
+            head.setPrevious(null);
+        }
+     }
+
+     public void deleteInMiddle(N data){
+
+        if(head != null) {
+            current = head;
+            while (current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+
+                if (current.getData() == data) {
+                    previous.setNext(previous.getNext().getNext());
+                    current.getNext().setPrevious(current.getPrevious());
+                }
+            }
+        }
+    }
+
     public void display() {
 
         current = head;

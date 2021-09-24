@@ -111,7 +111,6 @@ public class MyLinkedList<T> {
                 current = current.getNext();
 
                 if (current.getData() == data){
-
                     previous.setNext(previous.getNext().getNext());
                 }
 
