@@ -66,12 +66,12 @@ public class DoublyLinkedList<N> {
             dNode.setPrevious(current);
         }
     }
-
+    // Ensure that the delete method is just one method rather than having 3 methods.
     public void deleteAtEnd (){
 
         if (head == null){
 
-            head = head.getNext();
+            return;
         }
 
         else{
@@ -90,7 +90,7 @@ public class DoublyLinkedList<N> {
 
         if(head == null){
 
-            head = head.getNext();
+            return;
         }
         else{
 
@@ -108,8 +108,10 @@ public class DoublyLinkedList<N> {
                 current = current.getNext();
 
                 if (current.getData() == data) {
-                    previous.setNext(previous.getNext().getNext());
-                    current.getNext().setPrevious(current.getPrevious());
+                    if(current.getNext() != null){
+                        previous.setNext(previous.getNext().getNext());
+                        current.getNext().setPrevious(current.getPrevious());
+                    }else previous.setNext(null);
                 }
             }
         }

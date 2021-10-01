@@ -1,5 +1,7 @@
 package labs_examples.datastructures.linkedlist.labs;
 
+import java.util.HashMap;
+
 public class Runner_Double_Linked_list {
 
     public static void main(String[] args) {
@@ -19,6 +21,10 @@ public class Runner_Double_Linked_list {
 
 
         list.display();
+
+        HashMap<String, String> e = new HashMap<>();
+
+        e.clear();
 
 
     }
