@@ -1,5 +1,7 @@
 package labs_examples.datastructures.hashmap.labs;
 
+import java.util.*;
+
 /**
  *      HashMaps Exercise_02
  *
@@ -19,3 +21,91 @@ package labs_examples.datastructures.hashmap.labs;
  *      3) search for 100 elements
  *      4) delete 100 elements
  */
+class speedTest{
+
+    public static void main(String[] args) {
+
+        LinkedList<Integer> list = new LinkedList<>();
+
+        Stack<Integer> stack = new Stack<>();
+
+        Queue<Integer> queue = new ArrayDeque<Integer>();
+
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+
+        // Add elements
+
+        System.out.println("Add before linked :"+ System.currentTimeMillis());
+
+        for(int i = 1; i <= 100; i++){
+
+            list.push(i * 2);
+        }
+        System.out.println("Add after linked :"+ System.currentTimeMillis());
+
+        System.out.println();
+
+
+        System.out.println("Add before stack :"+ System.currentTimeMillis());
+
+        for(int i = 1; i <= 100; i++){
+
+            stack.push(i);
+        }
+        System.out.println("Add after stack :"+ System.currentTimeMillis());
+
+        System.out.println();
+
+
+        System.out.println("Add before queue :"+ System.currentTimeMillis());
+
+
+        for(int i = 1; i <= 100; i++){
+
+            queue.add(i);
+        }
+        System.out.println("Add after queue :"+ System.currentTimeMillis());
+
+        System.out.println();
+
+
+        System.out.println("Add before map :"+ System.currentTimeMillis());
+
+        for(int i = 1; i <= 100; i++){
+
+            map.put(i,i);
+        }
+        System.out.println("Add after map :"+ System.currentTimeMillis());
+
+        System.out.println();
+
+        System.out.println("Find before map :"+ System.currentTimeMillis());
+        map.get(3);
+        System.out.println("Find after map :"+ System.currentTimeMillis());
+
+        System.out.println();
+
+        System.out.println("Find before map :"+ System.currentTimeMillis());
+        list.contains(99);
+        System.out.println("Find after map :"+ System.currentTimeMillis());
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+}

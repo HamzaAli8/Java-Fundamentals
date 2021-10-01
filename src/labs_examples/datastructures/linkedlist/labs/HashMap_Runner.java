@@ -17,7 +17,10 @@ public class HashMap_Runner {
 
         e.remove(45);
 
+
         e.clear();
+
+        e.put(33,"Ryan");
 
         System.out.println(e);
 
